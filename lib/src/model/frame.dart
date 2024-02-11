@@ -146,7 +146,6 @@ class MavFrame extends ChangeNotifier {
             case (String key, dynamic value) v:
               publish(v.$1, v.$2);
             case _:
-              null;
           }
           await Future.delayed(stepDuration ?? const Duration(seconds: 2));
           if (!isRunning) break;
