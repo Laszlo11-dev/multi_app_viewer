@@ -45,7 +45,7 @@ flutter:
 
 issue_tracker: https://github.com/Laszlo11-dev/multi_app_viewer/issues
 screenshots:
-  - description: 'Base view'
+  - description: 'Base view after adding MAV'
     path: example/screenshots/base2.webp
   - description: 'Synchronized navigation'
     path: example/screenshots/intro2.webp
