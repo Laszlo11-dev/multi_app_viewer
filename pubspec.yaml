@@ -29,6 +29,7 @@ dependencies:
   flutter_colorpicker: ^1.0.3
   path_provider: ^2.1.2
   device_frame: ^1.1.0
+#  no update since 2.2.1, conflict with file_picker
   flutter_html: ^3.0.0-alpha.3
   screen_recorder: ^0.2.0
   file_picker: ^6.1.1
@@ -43,8 +44,10 @@ flutter:
   uses-material-design: true
 
 issue_tracker: https://github.com/Laszlo11-dev/multi_app_viewer/issues
-#screenshots:
-#  - description: 'Synchronized navigation'
-#    path: https://github.com/Laszlo11-dev/multi_app_viewer/blob/master/example/screenshots/common_navigation.gif
+screenshots:
+  - description: 'Base view'
+    path: example/screenshots/base2.webp
+  - description: 'Synchronized navigation'
+    path: example/screenshots/intro2.webp
 #funding:
 #  - https://www.github.com/laszlo11-dev
