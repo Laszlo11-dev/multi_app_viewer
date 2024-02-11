@@ -1,0 +1,15 @@
+dart pub global activate pana
+xcopy * c:\tmp\multi_app_viewer\ /E/H /EXCLUDE:pana_exclude.txt
+fvm dart pub global run pana c:\tmp\multi_app_viewer
+
+
+fvm dart pub global activate dartdoc
+fvm flutter pub add dartdoc
+fvm dart pub global activate dhttpd
+
+dart doc .
+dhttpd --path doc/api
+
+http://localhost:8080
+
+dart pub publish --dry-run

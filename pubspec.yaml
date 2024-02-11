@@ -1,0 +1,50 @@
+name: multi_app_viewer
+description: "Tool to view and navigate one app with different settings at the same time"
+version: 0.0.1
+homepage: https://laszlo11.dev
+repository: https://github.com/Laszlo11-dev/multi_app_viewer
+topics:
+  - devtools
+  - navigation
+  - preview
+  - screenshot
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  windows:
+  web:
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dashboard: ^0.0.4
+  shared_preferences: ^2.2.2
+  flutter_colorpicker: ^1.0.3
+  path_provider: ^2.1.2
+  device_frame: ^1.1.0
+  flutter_html: ^3.0.0-alpha.3
+  screen_recorder: ^0.2.0
+  file_picker: ^6.1.1
+  fullscreen_window: ^1.0.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+
+issue_tracker: https://github.com/Laszlo11-dev/multi_app_viewer/issues
+#screenshots:
+#  - description: 'Synchronized navigation'
+#    path: https://github.com/Laszlo11-dev/multi_app_viewer/blob/master/example/screenshots/common_navigation.gif
+#funding:
+#  - https://www.github.com/laszlo11-dev
