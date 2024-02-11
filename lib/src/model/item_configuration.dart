@@ -3,6 +3,30 @@ import 'package:flutter/material.dart';
 
 import '../util/util.dart';
 
+/// Configures how one child looks like
+///
+/// [title] appears on top and may use basic HTML.
+/// /// e.g. <h2>My best app</h2>
+///
+/// [description] appears on bottom and may use basic HTML.
+/// /// e.g. <h2>My best app</h2>
+///
+/// [tilt] is for the selected child
+///
+/// [backgroundColor] set the child background
+///
+/// [brightness], [targetPlatform], [orientation] are the matching Flutter properties
+///
+/// [deviceInfo] is from DeviceFrame
+///
+/// [useFrame] is to switch device frame on-off
+/// off means auto-sizing, while on maintains the device ratio
+///
+/// [width], [height], [left] and [top] are for dashboard layout
+///
+/// All of them are editable interactively or can be programmed
+///
+
 class ItemConfiguration {
   String? title;
   String? description = '<h3>item.configuration.description </h3>'
@@ -25,6 +49,8 @@ class ItemConfiguration {
   Offset? tilt = const Offset(0.0, -0.0);
   // Offset? tilt = const Offset(0.1, -0.2);
 
+  /// default constructor with all parameters
+  ///
   ItemConfiguration(
       {required this.id,
       this.title,
@@ -45,6 +71,8 @@ class ItemConfiguration {
     deviceInfo ??= Devices.ios.iPhone13ProMax;
   }
 
+  /// deserialization
+  ///
   factory ItemConfiguration.fromJson(Map<String, dynamic> json) {
     return ItemConfiguration(
       title: json["title"],
@@ -66,6 +94,8 @@ class ItemConfiguration {
     );
   }
 
+  /// serialization
+  ///
   Map<String, dynamic> toJson() {
     var jsonMap = {
       "id": id,

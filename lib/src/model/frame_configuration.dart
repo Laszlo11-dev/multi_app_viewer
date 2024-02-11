@@ -10,9 +10,16 @@ import '../util/util.dart';
 /// [title] appears on top and may use basic HTML.
 /// /// e.g. <h2>My best app</h2>
 ///
+/// [description] will appear on bottom and may use basic HTML.
+/// /// e.g. <h2>My best app</h2>
+///
 /// [tilt] is for the whole internal area
 ///
 /// [layoutType] is row, column, stack or dashboard
+///
+/// [backgroundColor] set the whole frame background
+///
+/// [isEditMode], [isTiltMode] and [isFullScreen] drive the frame current operation
 ///
 /// All of them are editable interactively or can be programmed
 ///
@@ -29,8 +36,13 @@ class FrameConfiguration {
   Offset? tilt = const Offset(0.0, 0.0);
   TextDirection? textDirection;
   LayoutType layoutType = LayoutType.row;
+
+  /// list of child configurations
+  ///
   List<ItemConfiguration> configurations = [];
 
+  /// default constructor with all parameters
+  ///
   FrameConfiguration.all(
       {this.isTiltMode = false,
       this.isEditMode = false,
@@ -44,6 +56,8 @@ class FrameConfiguration {
       required this.layoutType,
       required this.configurations});
 
+  /// serialization
+  ///
   Map<String, dynamic> toJson() {
     return {
       "configurations": configurations.map((e) => e.toJson()).toList(),
@@ -51,12 +65,13 @@ class FrameConfiguration {
       "title": title,
       "description": description,
       "backgroundColor": backgroundColor?.value,
-      // "padding": padding,
       "layoutType": layoutType.index,
       if (tilt != null) 'tilt': {'x': tilt?.dx, 'y': tilt?.dy},
     };
   }
 
+  /// deserialization
+  ///
   factory FrameConfiguration.fromJson(Map<String, dynamic> json) {
     return FrameConfiguration.all(
       configurations: json["configurations"]
@@ -71,6 +86,8 @@ class FrameConfiguration {
     );
   }
 
+  ///calls the platform specific file handling
+  ///
   static FrameConfiguration fromFile(String path) {
     void load() async {
       Map<String, dynamic> ize = await readJsonFile(path);
@@ -83,6 +100,9 @@ class FrameConfiguration {
     return FrameConfiguration.base();
   }
 
+  /// basic default configuration
+  /// children are light and dark mode
+  ///
   FrameConfiguration.base() {
     name = 'Base';
     configurations = [
@@ -97,6 +117,9 @@ class FrameConfiguration {
     ];
   }
 
+  /// basic default configuration
+  /// children are without device frames
+  ///
   FrameConfiguration.baseNoFrame() {
     name = 'Base, no frame';
     configurations = [
@@ -115,6 +138,9 @@ class FrameConfiguration {
     ];
   }
 
+  /// sets all tilts to 0
+  /// frame and children too
+  ///
   void resetTilt() {
     tilt = null;
     for (var element in configurations) {
@@ -122,6 +148,9 @@ class FrameConfiguration {
     }
   }
 
+  /// basic default configuration
+  /// with dashboard layout
+  ///
   factory FrameConfiguration.dashboard() {
     return FrameConfiguration.fromJson(jsonDecode('''
     { "configurations": [
@@ -186,6 +215,9 @@ class FrameConfiguration {
     '''));
   }
 
+  /// basic default configuration
+  /// several children in device frames
+  ///
   factory FrameConfiguration.lot() {
     return FrameConfiguration.fromJson(jsonDecode('''{
     "configurations": [
