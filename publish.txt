@@ -1,6 +1,6 @@
 dart pub global activate pana
 xcopy * c:\tmp\multi_app_viewer\ /E/H /EXCLUDE:pana_exclude.txt
-fvm dart pub global run pana c:\tmp\multi_app_viewer
+fvm dart pub global run pana c:\tmp\multi_app_viewer --flutter-sdk   C:\Users\KissL\fvm\versions\3.16.4
 
 
 fvm dart pub global activate dartdoc
